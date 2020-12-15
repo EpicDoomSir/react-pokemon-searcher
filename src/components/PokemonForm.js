@@ -14,7 +14,7 @@ class PokemonForm extends React.Component {
     console.log("submitting form...")
     this.props.createHandler({
       name: this.state.name,
-      hp: this.state.hp,
+      hp: parseInt(this.state.hp),
       sprites: {
         front: this.state.frontUrl,
         back: this.state.backUrl
