@@ -1,26 +1,15 @@
 import React from 'react'
 
 
-class Search extends React.Component {
-
-  state = {
-    value: ""
-  }
-  
-  localSearchHandler = (e) => {
-    this.props.searchHandler(e.target.value)
-  }
-
-  render() {
+const Search = (props) => {
     return (
       <div className="ui search">
         <div className="ui icon input">
-          <input className="prompt" value={this.props.value} onChange={this.localSearchHandler} />
+          <input className="prompt" value={props.value} onChange={props.searchHandler} />
           <i className="search icon" />
         </div>
       </div>
     )
-  }
 }
 
 export default Search

@@ -20,6 +20,9 @@ class PokemonCollection extends React.Component {
     let newArray = this.state.pokemonApi.filter(pokemonObj => {
       return pokemonObj.name.toLowerCase().includes(this.props.searchValue.toLowerCase())
     })
+    if(this.props.newPokemon){
+      newArray = [this.props.newPokemon, ...newArray]
+    }
     return newArray
   }
 
