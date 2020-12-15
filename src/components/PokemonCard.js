@@ -2,20 +2,35 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
+
+  state = {
+    flipped: false
+  }
+
+  flipSprite = (e)=>{
+    if (!this.state.flipped) {
+      e.target.src = this.props.pokemon.sprites.back
+      this.state.flipped = !this.state.flipped
+    } else {
+      e.target.src = this.props.pokemon.sprites.front
+      this.state.flipped = !this.state.flipped
+    }
+  }
+
   render() {
     return (
       <Card>
         <div>
           <div className="image">
-            <img alt="oh no!" />
+            <img alt={this.props.pokemon.name} src={this.props.pokemon.sprites.front} onClick={this.flipSprite}/>
           </div>
           <div className="content">
-            <div className="header">POKEMON NAME HERE</div>
+            <div className="header">{this.props.pokemon.name}</div>
           </div>
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              POKEMON HP HERE hp
+              {this.props.pokemon.hp} hp
             </span>
           </div>
         </div>
