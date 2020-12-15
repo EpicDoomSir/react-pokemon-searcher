@@ -16,12 +16,18 @@ class PokemonCollection extends React.Component {
     })
   }
 
+  filterPokemon = () => {
+    let newArray = this.state.pokemonApi.filter(pokemonObj => {
+      return pokemonObj.name.toLowerCase().includes(this.props.searchValue.toLowerCase())
+    })
+    return newArray
+  }
+
   displayPokemon(){
-    return this.state.pokemonApi.map(pokemonObj => <PokemonCard pokemon={pokemonObj}/>)
+    return this.filterPokemon().map(pokemonObj => <PokemonCard pokemon={pokemonObj}/>)
   }
 
   render() {
-    console.log(this.state)
     return (
       <Card.Group itemsPerRow={6}>
         {this.displayPokemon()}

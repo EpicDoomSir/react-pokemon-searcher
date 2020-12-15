@@ -10,10 +10,10 @@ class PokemonCard extends React.Component {
   flipSprite = (e)=>{
     if (!this.state.flipped) {
       e.target.src = this.props.pokemon.sprites.back
-      this.state.flipped = !this.state.flipped
+      this.setState({flipped: !this.state.flipped})
     } else {
       e.target.src = this.props.pokemon.sprites.front
-      this.state.flipped = !this.state.flipped
+      this.setState({flipped: !this.state.flipped})
     }
   }
 

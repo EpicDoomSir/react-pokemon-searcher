@@ -5,6 +5,15 @@ import Search from './Search'
 import { Container } from 'semantic-ui-react'
 
 class PokemonPage extends React.Component {
+
+  state = {
+    searchValue: ""
+  }
+
+  searchHandler = (newValue)=> {
+    this.setState({searchValue: newValue})
+  }
+
   render() {
     return (
       <Container>
@@ -12,9 +21,9 @@ class PokemonPage extends React.Component {
         <br />
         <PokemonForm />
         <br />
-        <Search />
+        <Search value={this.state.searchValue} searchHandler={this.searchHandler} />
         <br />
-        <PokemonCollection />
+        <PokemonCollection searchValue={this.state.searchValue} />
       </Container>
     )
   }
